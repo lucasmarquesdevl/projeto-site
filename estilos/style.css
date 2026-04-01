@@ -1,44 +1,68 @@
+/* Configurações Globais */
 * {
-    font-family: Arial, Helvetica, sans-serif; /* Adicionado ; */
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho dos elementos */
 }
 
 body {
     background-color: rgb(204, 157, 248);
+    padding: 20px;
 }
 
 main {
-    background-color: white; /* Adicionado ; */
-    width: 500px;
+    background-color: white;
+    width: 100%;
+    max-width: 600px; /* Largura máxima confortável */
     margin: auto;
-    padding: auto;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.473);
-
+    padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-h1 {
+header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+header h1 {
     font-size: 2em;
     color: rgb(58, 0, 112);
+    margin-bottom: 10px;
+}
+
+/* O Segredo do Alinhamento: Flexbox */
+article {
+    display: flex;         /* Coloca texto e imagem lado a lado */
+    align-items: center;   /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Empurra a imagem para o canto */
+    margin-bottom: 30px;
+    gap: 20px;             /* Espaço entre o texto e a imagem */
+}
+
+.conteudo {
+    flex: 1; /* Faz o texto ocupar todo o espaço restante, respeitando a imagem */
 }
 
 h2 {
     font-size: 1.5em;
     color: rgb(58, 0, 112);
+    margin-bottom: 8px;
 }
 
 img.lado {
-    float: right;
-    
+    width: 100px;  /* Tamanho fixo para os ícones */
+    height: auto;
+    flex-shrink: 0; /* Impede que a imagem seja "esmagada" pelo texto */
 }
-a {
+
+/* Estilo das Abreviações (Dica extra) */
+abbr {
     text-decoration: none;
     font-weight: bold;
     color: rgb(58, 0, 112);
-
-}
-
-a:hover {
-    text-decoration: underline;
-    color: rgb(26, 26, 255);
-
+    border-bottom: 1px dotted #3a0070;
+    cursor: help;
 }
