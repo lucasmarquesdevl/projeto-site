@@ -4,18 +4,18 @@
     font-size: 16px;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho dos elementos */
+    box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(204, 157, 248);
+    background-color: rgb(112, 103, 248);
     padding: 20px;
 }
 
 main {
     background-color: white;
     width: 100%;
-    max-width: 600px; /* Largura máxima confortável */
+    max-width: 600px;
     margin: auto;
     padding: 20px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -23,7 +23,7 @@ main {
 }
 
 header {
-    text-align: left;
+    text-align: center; /* Centralizei o cabeçalho para combinar com vídeos */
     margin-bottom: 20px;
 }
 
@@ -33,17 +33,19 @@ header h1 {
     margin-bottom: 10px;
 }
 
-/* O Segredo do Alinhamento: Flexbox */
+/* Container de Conteúdo */
 article {
-    display: flex;         /* Coloca texto e imagem lado a lado */
-    align-items: center;   /* Alinha verticalmente ao centro */
-    justify-content: space-between; /* Empurra a imagem para o canto */
+    display: flex;
+    flex-wrap: wrap;       /* ESSENCIAL: Permite que o vídeo desça se for largo */
+    align-items: center;
+    justify-content: center; 
     margin-bottom: 30px;
-    gap: 20px;             /* Espaço entre o texto e a imagem */
+    gap: 20px;
 }
 
 .conteudo {
-    flex: 1; /* Faz o texto ocupar todo o espaço restante, respeitando a imagem */
+    flex: 1;               /* O texto ocupa o espaço disponível */
+    min-width: 250px;      /* Se o espaço for menor que 250px, ele quebra a linha */
 }
 
 h2 {
@@ -52,13 +54,36 @@ h2 {
     margin-bottom: 8px;
 }
 
+/* Ajuste para Imagens Pequenas (Ícones) */
 img.lado {
-    width: 100px;  /* Tamanho fixo para os ícones */
+    width: 100px;
     height: auto;
-    flex-shrink: 0; /* Impede que a imagem seja "esmagada" pelo texto */
+    flex-shrink: 0;
 }
 
-/* Estilo das Abreviações (Dica extra) */
+/* Ajuste Específico para o Vídeo (Iframe) */
+iframe {
+    width: 100%;           /* Ocupa a largura total do main */
+    max-width: 560px;
+    height: 315px;
+    border-radius: 10px;
+    border: none;
+    display: block;
+    margin: 10px auto;     /* Centraliza o vídeo */
+}
+
+/* Estilo do Botão de Voltar */
+article > a img {
+    width: 50px;           /* Tamanho do botão de voltar */
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+
+article > a img:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Abreviações */
 abbr {
     text-decoration: none;
     font-weight: bold;
